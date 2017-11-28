@@ -18,8 +18,7 @@
 
 
 
-<link rel="stylesheet"
-	href="resources/bower_components/jquery-ui/themes/vaderjquery-ui.min.js">
+
 <link rel="stylesheet" href="/resources/demos/style.css">
 
 <!-- This is the localization file of the grid controlling messages, labels, etc.
@@ -106,8 +105,7 @@
             });
 
 
-
-
+    
 
 
 
@@ -133,7 +131,30 @@
                           closeAfterAdd: true,
 
                             },
-                    {url: 'http://'+serverIp+'/'+projectName+'/controller/task_delete_page.php'},
+                    {url: 'http://'+serverIp+'/'+projectName+'/controller/task_delete_page.php',
+                            	reloadAfterSubmit:true,
+                                closeAfterDelete: true,
+                                onclickSubmit: function(rp_ge, rowid) {
+                                    // delete row
+               					 var grid = jQuery("#jqGrid");
+                                    grid.delRowData(rowid);
+                                    // reload 
+
+                                    if (grid[0].p.lastpage > 1) {
+                                        // reload grid to make the row from the next page visable.
+                                        // TODO: deleting the last row from the last page which number is higher as 1
+                                        grid.trigger("reloadGrid", [{page:grid[0].p.page}]);
+                                    }
+
+                                    return true;
+               			                     
+               				                 }
+
+                                },
+
+
+
+                    
 	                   );
          
         });
