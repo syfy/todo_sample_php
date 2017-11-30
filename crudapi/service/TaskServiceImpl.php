@@ -2,6 +2,7 @@
 use service\TaskService;
 include_once '../domain/Task.php';
 include_once 'TaskService.php';
+include_once '../DAO/TaskDao.php';
 
 class TaskServiceImpl extends TaskService
 {

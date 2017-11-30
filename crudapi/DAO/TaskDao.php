@@ -7,16 +7,22 @@ class TaskDao implements Dao
 {
 
         private $conn;
+        private $sql_ip;
     function __construct()
     {
-        
+        $this->initSQLAddr();
     }
 
+    function initSQLAddr(){
+        $sql_ip = getenv("MYSQL_PORT_3306_TCP_ADDR");
+    }
+    
+    
     function addNew($item)
     {
         $newItem = $item;
         
-        $conn = new mysqli(GlobalVars::$LOCAL_IP, GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
+        $conn = new mysqli(getenv("MYSQL_PORT_3306_TCP_ADDR"), GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
         
         if ($conn->connect_error) {
             die("ERROR: Unable to connect: " . $conn->connect_error);
@@ -35,7 +41,7 @@ class TaskDao implements Dao
     function update($item)
     {
 
-        $conn = new mysqli(GlobalVars::$LOCAL_IP, GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
+        $conn = new mysqli(getenv("MYSQL_PORT_3306_TCP_ADDR"), GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
         
         if ($conn->connect_error) {
             die("ERROR: Unable to connect: " . $conn->connect_error);
@@ -45,7 +51,7 @@ class TaskDao implements Dao
  date = '$item->date' WHERE id = $item->id";
         
         if ($conn->query($sql) === TRUE) {
-            echo "updated successfully";
+           
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -53,7 +59,7 @@ class TaskDao implements Dao
 
     function delete($item)
     {
-        $conn = new mysqli(GlobalVars::$LOCAL_IP, GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
+        $conn = new mysqli(getenv("MYSQL_PORT_3306_TCP_ADDR"), GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
         if ($conn->connect_error) {
             die("ERROR: Unable to connect: " . $conn->connect_error);
         }
@@ -68,7 +74,7 @@ class TaskDao implements Dao
     {
         $taskBuilder = new TaskBuilder();
         
-        $conn = new mysqli(GlobalVars::$LOCAL_IP, GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
+        $conn = new mysqli(getenv("MYSQL_PORT_3306_TCP_ADDR"), GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
         
         if ($conn->connect_error) {
             die("ERROR: Unable to connect: " . $conn->connect_error);
@@ -88,9 +94,12 @@ class TaskDao implements Dao
 
     function getAll()
     {
+     
+        $this->initSQLAddr();
+        
         $taskBuilder = new TaskBuilder();
         $list = array();
-        $conn = new mysqli(GlobalVars::$LOCAL_IP, GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
+        $conn = new mysqli(getenv("MYSQL_PORT_3306_TCP_ADDR"), GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
         
         if ($conn->connect_error) {
             die("ERROR: Unable to connect: " . $conn->connect_error);

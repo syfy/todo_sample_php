@@ -2,6 +2,7 @@
 include_once '../global_settings/global_vars.php';
 include_once '../DAO/TaskDao.php';
 include_once '../service/TaskServiceImpl.php';
+include_once '../helpers/ResponseHelper.php';
 header("Content-Type:application/json");
 
 if (! empty($_POST['id'])) {
@@ -16,7 +17,7 @@ if (! empty($_POST['id'])) {
         $taskToBeEdited->setDate($date);
         $taskToBeEdited->setTask($task);
         $taskService->update($taskToBeEdited);
-        ResponseHelper::response(200, "Done", $task);
+      //  ResponseHelper::response(200, "Done", $task);
     }
 } else {
     ResponseHelper::response(400, "Invalid Request", NULL);
