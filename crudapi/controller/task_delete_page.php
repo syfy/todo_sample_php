@@ -24,7 +24,6 @@ function doDelete($id){
     $taskService = new TaskServiceImpl();
     $taskToBeRemoved = $taskService->get($id);
     $taskService->delete($taskToBeRemoved);
-    //ResponseHelper::response(200, "Done", $task);
 
 }
 

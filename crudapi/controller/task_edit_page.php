@@ -17,7 +17,7 @@ if (! empty($_POST['id'])) {
         $taskToBeEdited->setDate($date);
         $taskToBeEdited->setTask($task);
         $taskService->update($taskToBeEdited);
-      //  ResponseHelper::response(200, "Done", $task);
+
     }
 } else {
     ResponseHelper::response(400, "Invalid Request", NULL);

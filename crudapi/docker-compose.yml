@@ -1,0 +1,30 @@
+php7:
+  build: .
+  dockerfile: /etc/docker/dockerfile_php_7
+  volumes:
+    - ./sites:/var/www/html
+    - ./etc/php:/usr/local/etc/php
+    - ./etc/apache2/apache2.conf:/etc/apache2/conf-enabled/apache2.conf
+    - ./etc/apache2/hosts.conf:/etc/apache2/sites-enabled/hosts.conf
+    - ../:/var/www/html
+    
+  ports:
+    - "80:80"
+    - "8080:8080"
+  links:
+    - mysql
+
+
+mysql:
+  image: mysql:5.7
+  restart: always
+  ports:
+    - "3306:3306"
+  environment:
+       MYSQL_ALLOW_EMPTY_PASSWORD : "yes"
+       MYSQL_DATABASE: tododb
+       MYSQL_USER: admin
+       MYSQL_PASSWORD: admin
+       MYSQL_ROOT_PASSWORD: admin
+  volumes: 
+    -  ./etc/mysql:/docker-entrypoint-initdb.d
