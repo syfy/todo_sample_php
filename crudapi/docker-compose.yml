@@ -27,4 +27,4 @@ mysql:
        MYSQL_PASSWORD: admin
        MYSQL_ROOT_PASSWORD: admin
   volumes: 
-    -  ./etc/mysql:/docker-entrypoint-initdb.d
+    - ./db.sql:/docker-entrypoint-initdb.d/schema.sql:ro

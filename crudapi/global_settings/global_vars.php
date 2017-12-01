@@ -3,7 +3,7 @@
 class GlobalVars
 {
 
-    public static $LOCAL_IP = "";
+
 
     public static $SQL_USER = 'root';
 

@@ -4,13 +4,13 @@ include_once '../DAO/TaskDao.php';
 include_once '../service/TaskServiceImpl.php';
 include_once '../helpers/ResponseHelper.php';
 header("Content-Type:application/json");
+$task = $_POST['task'];
+$id = $_POST['id'];
+$date = $_POST['date'];
+if (! empty($id)) {
 
-if (! empty($_POST['id'])) {
-    $task = $_POST['task'];
-    $id = $_POST['id'];
-    $date = $_POST['date'];
     if (empty($task)) {
-        ResponseHelper::response(200, " Not Found", NULL);
+        ResponseHelper::response(200, "Unnamed Task", NULL);
     } else {
         $taskService = new TaskServiceImpl();
         $taskToBeEdited = $taskService->get($id);
