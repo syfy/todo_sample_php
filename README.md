@@ -13,7 +13,7 @@ using docker.
 
 1.-use docker-compose up on crudapi folder.
 
-2. http://127.0.0.1/crudapi/views/
+2.you should be able to access http://127.0.0.1/crudapi/views/
 
 note:
 -the application may take a while to load since it will initialize the schema.
