@@ -6,11 +6,25 @@ a sample CRUD php application for demonstrating OOP principles.
 
 -included are docker-compose.yml for docker deployment
 
--The UI makes use of JQuery and Jqgrid library.
+usage and installation
+(bare metal installation):
 
--The RDBMS is MySQL 4.7
+1. paste the entire crudapi folder into the web server directory ei htdocs.
+2. change the database settings in the \crudapi\global_settings.
+3. install / import the mysql database located in the db.sql.
+4. add MYSQL_PORT_3306_TCP_ADDR to the environment variable with the value of local host.
+5. Run the lamp or xampp.
+6. access the UI http://127.0.0.1/crudapi/views/
+-----------------------------
+using docker.
+1 .-use docker-compose up on crudapi folder.
+2. http://127.0.0.1/crudapi/views/
+note:
+-the application may take a while to load since it will initialize the schema.
+-please don ot change the default password of the docker-compose.yml as the database initialization script uses a hardcoded user and password for previllage escalation.
 
-usage:
+
+
 	the url for the UI is.
 	http://127.0.0.1/crudapi/views/
 	
