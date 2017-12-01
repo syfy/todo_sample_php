@@ -9,7 +9,9 @@ a sample CRUD php application for demonstrating OOP principles.
 usage and installation
 -----------------------
 using docker.
-1 .-use docker-compose up on crudapi folder.
+
+
+1.-use docker-compose up on crudapi folder.
 
 2. http://127.0.0.1/crudapi/views/
 
