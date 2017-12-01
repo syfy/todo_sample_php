@@ -18,10 +18,12 @@ class TaskDao implements Dao
     }
     
     
-    function addNew($item)
+    function addNew(Task $item)
     {
-        $newItem = $item;
+     
         
+        $newItem = $item;
+      
         $conn = new mysqli(getenv("MYSQL_PORT_3306_TCP_ADDR"), GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
         
         if ($conn->connect_error) {
@@ -29,7 +31,7 @@ class TaskDao implements Dao
         }
         
         $sql = "INSERT INTO tasks (id, name,date)
-       VALUES (0,'$item->task','$item->date')";
+       VALUES (0,'$newItem->task','$newItem->date')";
         
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
@@ -38,7 +40,7 @@ class TaskDao implements Dao
         }
     }
 
-    function update($item)
+    function update(Task $item)
     {
 
         $conn = new mysqli(getenv("MYSQL_PORT_3306_TCP_ADDR"), GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
@@ -57,7 +59,7 @@ class TaskDao implements Dao
         }
     }
 
-    function delete($item)
+    function delete(Task $item)
     {
         $conn = new mysqli(getenv("MYSQL_PORT_3306_TCP_ADDR"), GlobalVars::$SQL_USER, GlobalVars::$SQL_PW, GlobalVars::$DB_NAME);
         if ($conn->connect_error) {

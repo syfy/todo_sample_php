@@ -1,6 +1,6 @@
 <?php
 
-class Task
+class Task 
 {
     function __construct($idp,$taskp,$date)
     {
@@ -10,7 +10,7 @@ class Task
     }
     
  
-    public $id;
+    public $id; // made it public because of scope problems on JsonSerialing private variables
     public $task;
     public $date;
     /**
@@ -60,6 +60,7 @@ class Task
     {
         return $this->task;
     }
+ 
 
  
 }

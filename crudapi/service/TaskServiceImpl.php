@@ -24,17 +24,17 @@ class TaskServiceImpl extends TaskService
         return $this->taskDao->getOne($id);
     }
 
-    public function update($task)
+    public function update(Task $task)
     {
         $this->taskDao->update($task);
     }
 
-    public function create($item)
+    public function create(Task $item)
     {
         $this->taskDao->addNew($item);
     }
 
-    public function delete($task)
+    public function delete(Task $task)
     {
         $this->taskDao->delete($task);
     }

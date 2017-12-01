@@ -3,11 +3,11 @@
 interface Dao
 {
 
-    function addNew($item);
+    function addNew(Task $item);
 
-    function update($item);
+    function update(Task $item);
 
-    function delete($item);
+    function delete(Task $item);
 
     function getOne($id);
 

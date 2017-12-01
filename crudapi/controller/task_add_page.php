@@ -18,6 +18,7 @@ if (! empty($task)) {
     } else {
         $taskService = new TaskServiceImpl();
         $newTask = new Task($id, $task, $date);
+        
         $taskService->create($newTask);
         ResponseHelper::response(200, "Done", $task);
     }
