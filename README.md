@@ -7,6 +7,18 @@ a sample CRUD php application for demonstrating OOP principles.
 -included are docker-compose.yml for docker deployment
 
 usage and installation
+-----------------------
+using docker.
+1 .-use docker-compose up on crudapi folder.
+
+2. http://127.0.0.1/crudapi/views/
+
+note:
+-the application may take a while to load since it will initialize the schema.
+-please don ot change the default password of the docker-compose.yml as the database initialization script uses a hardcoded user and password for previllage escalation.
+-------------------------------------------------------------
+
+
 (bare metal installation):
 
 1. paste the entire crudapi folder into the web server directory ei htdocs.
@@ -16,12 +28,6 @@ usage and installation
 5. Run the lamp or xampp.
 6. access the UI http://127.0.0.1/crudapi/views/
 -----------------------------
-using docker.
-1 .-use docker-compose up on crudapi folder.
-2. http://127.0.0.1/crudapi/views/
-note:
--the application may take a while to load since it will initialize the schema.
--please don ot change the default password of the docker-compose.yml as the database initialization script uses a hardcoded user and password for previllage escalation.
 
 
 
